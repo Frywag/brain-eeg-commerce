@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父项目信息 - 更新为支持Java 21的版本 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.4</version> <!-- 更新到支持Java 21的版本 -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!-- 本项目信息 -->
+    <groupId>com.braincommerce</groupId>
+    <artifactId>brain-eeg-commerce</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging> <!-- 注意：这里是pom，表示这是一个父项目 -->
+    <name>brain-eeg-commerce</name>
+    <description>Brain EEG Research Equipment E-Commerce Platform</description>
+
+    <!-- 子模块列表 -->
+    <modules>
+        <!-- 稍后将创建这些模块 -->
+        <module>common</module>
+        <module>api-gateway</module>
+        <module>discovery-service</module>
+        <module>user-service</module>
+        <module>product-service</module>
+    </modules>
+
+    <!-- 统一管理依赖版本 - 已更新为Java 21兼容的版本 -->
+    <properties>
+        <java.version>21</java.version> <!-- 修改为Java 21 -->
+        <spring-cloud.version>2024.0.1</spring-cloud.version> <!-- 更新为支持最新Spring Boot的版本 -->
+        <spring-boot.version>3.4.4</spring-boot.version> <!-- 与parent保持一致 -->
+        <lombok.version>1.18.30</lombok.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+    </properties>
+
+    <!-- 所有子模块共享的依赖 -->
+    <dependencies>
+        <!-- Lombok简化代码 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 测试框架 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- 依赖管理，子模块可以选择性地继承这些依赖 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Cloud 依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 构建配置 -->
+    <build>
+        <plugins>
+            <!-- Maven编译插件 - 更新为支持Java 21 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>--enable-preview</arg> <!-- 启用Java预览功能 -->
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
