@@ -28,28 +28,28 @@
 认证服务 ← 配置服务
 ```
 ## 技术栈选择
-核心框架:
-  • Spring Boot 3.x
-  • Spring Cloud (服务治理)
-  • Spring Data JPA/MyBatis-Plus (ORM)
-  • Spring Security + OAuth2 (安全)
-数据存储:
-  • MySQL 8.x (关系型数据)
-  • Redis (缓存/分布式锁)
-  • MongoDB (非结构化数据，如研究资料)
-  • Elasticsearch (产品搜索引擎)
-消息/事件:
-  • RabbitMQ/Kafka (事件驱动/异步消息)
-部署/运维:
-  • Docker + Kubernetes
-  • Jenkins/GitHub Actions (CI/CD)
-  • Prometheus + Grafana (监控)
+核心框架:  
+  • Spring Boot 3.x  
+  • Spring Cloud (服务治理)  
+  • Spring Data JPA/MyBatis-Plus (ORM)  
+  • Spring Security + OAuth2 (安全)  
+数据存储:  
+  • MySQL 8.x (关系型数据)  
+  • Redis (缓存/分布式锁)  
+  • MongoDB (非结构化数据，如研究资料)  
+  • Elasticsearch (产品搜索引擎)  
+消息/事件:  
+  • RabbitMQ/Kafka (事件驱动/异步消息)  
+部署/运维:  
+  • Docker + Kubernetes  
+  • Jenkins/GitHub Actions (CI/CD)  
+  • Prometheus + Grafana (监控)  
 ## 各微服务详细设计
 ### 1. 用户服务 (user-service)
-功能:
-  • 用户注册与认证
-  • 专业资质验证 (对研究机构/专业人员)
-  • 用户分析与画像
+功能:  
+  • 用户注册与认证  
+  • 专业资质验证 (对研究机构/专业人员)  
+  • 用户分析与画像  
 数据模型:
 ```java
 @Entity
@@ -73,11 +73,11 @@ public class User {
 }
 ```
 ### 2. 产品服务 (product-service)
-功能:
-  • 脑电设备管理
-  • 详细技术规格维护
-  • 兼容性数据
-  • 分类与搜索
+功能:  
+  • 脑电设备管理  
+  • 详细技术规格维护  
+  • 兼容性数据  
+  • 分类与搜索  
 数据模型:
 ```java
 @Entity
@@ -125,11 +125,11 @@ public class TechnicalSpecification {
 }
 ```
 ### 3. 技术支持服务 (tech-support-service)
-功能:
-  • 咨询预约
-  • 在线技术支持会话
-  • 知识库管理
-  • 专家匹配系统
+功能:  
+  • 咨询预约  
+  • 在线技术支持会话  
+  • 知识库管理  
+  • 专家匹配系统  
 数据模型:
 ```java
 @Entity
@@ -156,31 +156,31 @@ public class SupportTicket {
 ```
 ## 实现路线图
 ### 阶段一：基础设施与核心服务
-  设置项目骨架
-    创建Spring Boot项目
-    配置服务注册与发现
-    实现API网关
-  实现核心服务
-    用户服务 (认证/授权)
-    产品服务 (基础CRUD)
-    订单流程 (基础版)
+  1.设置项目骨架  
+    创建Spring Boot项目  
+    配置服务注册与发现  
+    实现API网关  
+  2.实现核心服务  
+    用户服务 (认证/授权)  
+    产品服务 (基础CRUD)  
+    订单流程 (基础版)  
 ### 阶段二：专业功能扩展
-  技术支持系统
-    咨询预约功能
-    专家匹配算法
-  设备租赁系统
-    租赁合同管理
-    归还与检测流程
-  研究资料共享
-    资料上传与分类
-    权限控制
+  1.技术支持系统  
+    咨询预约功能  
+    专家匹配算法  
+  2.设备租赁系统  
+    租赁合同管理  
+    归还与检测流程  
+  3.研究资料共享  
+    资料上传与分类  
+    权限控制  
 ### 阶段三：高级功能与优化
-  高级搜索与推荐
-    基于Elasticsearch的技术参数搜索
-    个性化推荐系统
-  性能优化
-    缓存策略优化
-    数据库索引优化
+  1.高级搜索与推荐  
+    基于Elasticsearch的技术参数搜索  
+    个性化推荐系统  
+  2.性能优化  
+    缓存策略优化  
+    数据库索引优化  
 
 ```
 ## 数据库设计考量
