@@ -197,13 +197,7 @@ public class SupportTicket {
   数据安全
     敏感数据加密
     PII数据保护符合相关法规
-## 下一步行动计划
-  需求细化
-    详细列出各类脑电设备特性
-    技术支持服务具体流程
-  开发环境搭建
-    配置开发/测试/生产环境
-    设置CI/CD流程
-  MVP开发
-    实现核心功能
-    快速迭代验证
+## 项目细化
+  可访问Eureka控制台：http://localhost:8761/
+  访问：http://localhost:8080/health进行API网关健康度检查
+
